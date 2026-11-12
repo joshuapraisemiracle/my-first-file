@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h2>My Expense Tracker</h2>
+
+    <input id="expenseName" type="text" placeholder="What did you buy?">
+
+    <input id="expenseAmount" type="number" placeholder="Amount">
+
+    <button id="addExpense">Add Expense</button>
+
+    <h3>My Expenses</h3>
+
+    <ul id="expenseList"></ul>
+
+    <h3 id="total">Total: ₦0</h3>
+
+    <p id="error"></p>
+
+
+    <script>
+
+
+        let expenseName = document.getElementById('expenseName')
+
+        let expenseAmount = document.getElementById('expenseAmount')
+
+        let addExpense = document.getElementById('addExpense')
+        let expenseList = document.getElementById('expenseList')
+        let total = document.getElementById('total')
+        let errorDisplay = document.getElementById('error')
+
+        const expensesArray = []
+
+        let totalAmount = 0;
+
+
+        addExpense.addEventListener('click', function () {
+            if (expenseName.value === "" || expenseAmount.value === "") {
+                errorDisplay.textContent = "input item!";
+
+            } else {
+                errorDisplay.textContent = ""
+
+                const expense = {
+                    item: expenseName.value,
+                    amount: Number(expenseAmount.value)
+                };
+
+                expensesArray.push(expense);
+
+
+                const li = document.createElement('li')
+
+                li.textContent = `${expense.item} - ${expense.amount}`;
+
+                expenseList.appendChild(li);
+
+                total.textContent = `Total: ₦${totalAmount += expense.amount }`
+
+                expenseName.value = ""
+
+                expenseAmount.value = ""
+
+
+
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>

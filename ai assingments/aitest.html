@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="hello">hello world</h1>
+    <button id="change">change text</button>
+    <button id="reset">reset</button>
+
+    <input type="password" id="password" placeholder="password">
+    <button id="showBtn">show password</button>
+
+    <h1 id="counter">0</h1>
+
+    <button id="increase">increase</button>
+    <button id="decrease">decrease</button>
+    <button id="resetCounter">reset</button>
+<hr>
+
+    <textarea name="message" id="writing"></textarea>
+
+    <h1 id="textareaCounter">0</h1>
+
+    <button id="clear">clear</button>
+
+
+
+    <script>
+
+        const text = document.getElementById("hello")
+        const change = document.getElementById("change")
+        const resetBtn = document.getElementById("reset")
+
+        change.addEventListener('click', function(){
+            text.textContent = "welcome to javascript"
+        })
+
+        resetBtn.addEventListener('click', function(){
+            text.textContent = "hello world";
+        })
+
+
+        const password = document.getElementById("password")
+        const showbutton = document.getElementById("showBtn")
+
+
+        showbutton.addEventListener('click', function(){
+            if (password.type == "password"){
+                password.type = "text";
+                showbutton.textContent = "hide password"
+
+            }else  {
+                password.type = "password";
+                showbutton.textContent = "show password"
+                
+            };
+        });
+
+
+        let counter = document.getElementById("counter")
+        let increase = document.getElementById("increase")
+        let decrease = document.getElementById("decrease")
+        let reset = document.getElementById("resetCounter")
+
+
+        let count = 0;
+
+        increase.addEventListener('click', function(){
+            count ++;
+            counter.textContent = count ;
+
+        })
+
+        decrease.addEventListener('click', function(){
+            count --;
+            counter.textContent = count ;
+        })
+
+        reset.addEventListener('click', function(){
+            count = 0;
+            counter.textContent = count ;
+
+        });
+
+        let inputArea = document.getElementById('writing')
+        let counteR = document.getElementById('textareaCounter')
+        let clearBtn = document.getElementById('clear')
+
+        let countt = 0;
+
+        inputArea.addEventListener('input', function(){
+            countt = inputArea.value.length ;
+            counteR.textContent = countt ;
+
+        })
+
+        clearBtn.addEventListener('click', function(){
+            countt = 0;
+            inputArea.value = "";
+            counteR.textContent = countt;
+
+            
+        })
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

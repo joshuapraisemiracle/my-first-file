@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h2>My Shopping Store</h2>
+
+    <p>Product: Headphones</p>
+    <p>Price: ₦15,000</p>
+
+    <button id="add">Add to Cart</button>
+
+    <h3>Cart</h3>
+    <p id="quantity">Quantity: 0</p>
+    <p id="total">Total: ₦0</p>
+
+    <button id="remove">Remove One</button>
+    <button id="clear">Clear Cart</button>
+
+
+    <script>
+
+        let addBtn = document.getElementById('add')
+        let quantityDisplay = document.getElementById('quantity')
+        let totalDisplay = document.getElementById('total')
+        let removeBtn = document.getElementById('remove')
+        let clearBtn = document.getElementById('clear')
+
+        let quantity = 0;
+        let price = 15000;
+
+        addBtn.addEventListener('click', function () {
+            quantity++;
+            updateCart();
+
+
+        })
+
+
+        function updateCart() {
+
+            quantityDisplay.textContent = (`Quantity: ${quantity}`);
+
+            totalDisplay.textContent = (`Total: ₦${quantity * price}`);
+
+        }
+
+
+        removeBtn.addEventListener('click', function () {
+            if (quantity > 0) {
+                quantity--;
+
+                updateCart()
+
+            } else {
+                
+            }
+
+        })
+
+
+        clearBtn.addEventListener('click', function(){
+            quantity = 0;
+            updateCart();
+
+        })
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

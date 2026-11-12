@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="number">
+    <button id="guess">guess</button>
+    <p id="display"></p>
+
+    <script>
+
+        let numberInput = document.getElementById('number')
+        let guessBtn = document.getElementById('guess')
+        let display = document.getElementById('display')
+
+        const secretNumber = 7;
+
+        guessBtn.addEventListener('click', function (){
+            if(Number(numberInput.value) === secretNumber ){
+                display.textContent = "correct!"
+
+            }else if (Number(numberInput.value) > secretNumber){
+                    display.textContent = "too high"
+
+                }else {
+                    display.textContent = "too low"
+                    
+                }
+
+
+
+        
+
+        })
+
+
+
+
+    </script>
+    
+</body>
+</html>

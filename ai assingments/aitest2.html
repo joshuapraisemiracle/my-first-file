@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="password" id="password">
+    <button id="check">check password</button>
+    <p id="display"></p>
+
+    <input type="text" id="input">
+    <button id="add">ADD ITEM</button>
+    <ul id="displayList"></ul>
+    <p id="error"></p>
+
+    <script>
+        let password = document.getElementById('password')
+        let check = document.getElementById('check')
+        let display = document.getElementById('display')
+
+        check.addEventListener('click', function () {
+            if (password.value.length < 8) {
+                display.textContent = "weak password"
+
+            } else {
+                display.textContent = "good password"
+            }
+        })
+
+
+
+        let input = document.getElementById('input')
+        let add = document.getElementById('add')
+        let displayList = document.getElementById('displayList')
+
+        let errorDisplay = document.getElementById('error')
+
+
+
+
+
+
+        add.addEventListener('click', function () {
+            if (input.value === "") {
+                errorDisplay.textContent = "please enter item"
+
+
+            } else {
+                const li = document.createElement("li");
+                li.textContent = input.value;
+
+                displayList.appendChild(li);
+
+                const deleteBtn = document.createElement("button");
+
+                deleteBtn.textContent = "delete"
+
+                deleteBtn.addEventListener('click', function () {
+                    li.remove()
+
+                })
+
+                li.appendChild(deleteBtn)
+
+
+
+
+
+
+
+
+
+                input.value = "";
+
+                errorDisplay.textContent = "";
+
+                
+
+            }
+
+
+
+
+
+
+        })
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<h2>My Favourite Fruits</h2>
+
+<input id="fruitInput" type="text" placeholder="Enter a fruit">
+
+<button id="addFruit">Add Fruit</button>
+
+<button id="showFruits">Show All Fruits</button>
+
+<ul id="fruitList"></ul>
+
+<p id="message"></p>
+
+
+<script>
+
+    let fruitInput = document.getElementById('fruitInput')
+    let addFruit = document.getElementById('addFruit')
+    let showFruits = document.getElementById('showFruits')
+    let fruitDisplay = document.getElementById('fruitList')
+    let message = document.getElementById('message')
+
+    let fruits = []
+
+    addFruit.addEventListener('click', function(){
+        if (fruitInput.value === ""){
+            message.textContent = "enter an item"
+
+        } else{
+            message.textContent = ""
+            fruits.push(fruitInput.value)
+            fruitInput.value = ""
+            
+
+        }
+    })
+
+    showFruits.addEventListener('click', function(){
+        fruitDisplay.textContent = ""
+
+        for( let i = 0; i < fruits.length; i++){
+            const li = document.createElement('li')
+            li.textContent = fruits[i];
+            fruitDisplay.appendChild(li)
+            
+
+        }
+
+
+    })
+
+
+
+
+</script>
+    
+</body>
+</html>

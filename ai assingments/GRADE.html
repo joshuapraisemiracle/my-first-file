@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <h2>Student Score Manager</h2>
+
+    <input id="studentName" type="text" placeholder="Student name">
+
+    <input id="studentScore" type="number" placeholder="Student score">
+
+    <button id="addStudent">Add Student</button>
+
+    <ul id="studentList"></ul>
+
+    <p id="average">Average Score: 0</p>
+
+    <p id="error"></p>
+
+    <script>
+
+        let studentName = document.getElementById('studentName')
+        let studentScore = document.getElementById('studentScore')
+        let addBtn = document.getElementById('addStudent')
+        let list = document.getElementById('studentList')
+        let average = document.getElementById('average')
+        let error = document.getElementById('error')
+
+        const students = []
+
+
+        addBtn.addEventListener('click', function () {
+
+            if (studentName.value === "" || studentScore.value === ""){
+                error.textContent = "input details!";
+
+            } else{
+
+                error.textContent = "" ;
+
+                const student = {
+                name: studentName.value,
+                score: Number(studentScore.value)
+            };
+
+            students.push(student);
+
+            const li = document.createElement('li')
+
+            li.textContent = `${student.name} - ${student.score}`;
+
+            list.appendChild(li);
+
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.textContent = "delete"
+            document.body.appendChild(deleteBtn)
+
+            deleteBtn.addEventListener('click', function () {
+                li.remove()
+
+            })
+
+            li.appendChild(deleteBtn)
+
+            studentName.value = ""
+            studentScore.value = ""
+
+
+            const totalScore = students.reduce(function (total, student) {
+                return total + student.score;
+            }, 0);
+
+            const averageScore = totalScore / students.length
+
+
+            average.textContent = `Average Score: ${averageScore}`
+
+            
+
+
+
+            }
+
+            
+            
+            
+
+            
+
+
+
+            
+
+
+            
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

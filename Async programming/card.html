@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            /* justify-content: center; */
+            /* align-content: center; */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .cardbody {
+            background-color: rgb(9, 230, 212);
+            width: 300px;
+            text-align: center;
+            height: 40vh;
+            border-radius: 10px;
+            box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+
+        }
+
+        h3 {
+            font-size: 30px;
+
+
+        }
+
+        p {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        img {
+            width: 100px;
+
+            padding-top: 20px;
+            border-radius: 10px;
+        }
+
+        #card-container {
+            display: flex;
+            gap: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="card-container"></div>
+
+
+    <script>
+
+        let parentCardbody = document.getElementById('card-container');
+    
+
+        async function getUsers() {
+            
+
+            try {
+                let users = fetch("https://jsonplaceholder.typicode.com/users")
+                let response = await users;
+                let data = await response.json()
+
+
+                data.forEach(function (user) {
+
+                    let newCard = document.createElement('div');
+
+                    newCard.className = 'cardbody';
+
+                    newCard.innerHTML = `
+
+                        <img src="/img/professional-male-avatar-profile-picture-employee-work_1322206-66523.avif" alt="">
+
+                        <h3>${user.username}</h3>
+                        <p>${user.email}</p>
+                                          `;
+
+                    parentCardbody.appendChild(newCard);
+
+                });
+
+                
+
+
+
+            } catch (error) {
+                console.log(error)
+
+            }
+
+        }
+
+        getUsers();
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

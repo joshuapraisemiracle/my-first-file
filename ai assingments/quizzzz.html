@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <h2>JavaScript Quiz</h2>
+
+    <p id="question">What does HTML stand for?</p>
+
+    <button id="option1">Hyper Text Markup Language</button>
+    <button id="option2">High Text Machine Language</button>
+    <button id="option3">Home Tool Markup Language</button>
+
+    <p id="result"></p>
+
+    <p id="score">Score: 0</p>
+
+
+
+
+
+
+    <!-- greeting assingment  -->
+
+
+    <h2>Greeting App</h2>
+
+<input id="username" type="text" placeholder="Enter your name">
+
+<button id="greetBtn">Greet Me</button>
+
+<p id="greeting"></p>
+
+    <script>
+
+        let userinput = document.getElementById('username')
+        let greetBtn = document.getElementById('greetBtn')
+        let greetingDisplay = document.getElementById('greeting')
+
+
+        greetBtn.addEventListener('click', function (){
+            greetUser()
+
+        
+
+
+        })
+
+
+        function greetUser(){
+            
+
+            if(userinput.value === ""){
+                greetingDisplay.textContent = "please enter name!"
+
+            } else {
+                greetingDisplay.textContent = `hello,  ${userinput.value}! welcome. `
+
+                userinput.value = ""
+            }
+
+            
+
+
+        }
+
+//greeting assignment ended here!
+
+
+
+
+
+
+
+
+        let question = document.getElementById('question')
+
+        let firstOption = document.getElementById('option1')
+        let secondOption = document.getElementById('option2')
+        let thirdOption = document.getElementById('option3')
+
+        let resultDisplay = document.getElementById('result')
+        let scoreDisplay = document.getElementById('score')
+
+        let scoreCount = 0;
+
+        let answered = false;
+
+        firstOption.addEventListener('click', function () {
+            resultDisplay.textContent = "correct answer"
+
+
+            if (answered === false) {
+                scoreCount++;
+                scoreDisplay.textContent = `Score: ${scoreCount}`
+                answered = true;
+
+
+            } else{
+
+            }
+
+        })
+
+        secondOption.addEventListener('click', function () {
+            resultDisplay.textContent = "wrong answer"
+
+        })
+
+        thirdOption.addEventListener('click', function () {
+            resultDisplay.textContent = "wrong answer"
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
